@@ -14,7 +14,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -24,6 +23,8 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'rest_framework',
     'rest_framework.authtoken',
+    'schema_graph',
+    'django_extensions',
 
     'core'
 ]

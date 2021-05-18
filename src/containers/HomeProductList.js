@@ -15,7 +15,7 @@ import { productListURL, addToCartURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import { authAxios } from "../utils";
 
-class ProductList extends React.Component {
+class HomeProductList extends React.Component {
   state = {
     loading: false,
     error: null,
@@ -131,4 +131,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(ProductList);
+export default connect(null, mapDispatchToProps)(HomeProductList);

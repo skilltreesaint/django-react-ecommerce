@@ -8,12 +8,13 @@ import {
   Image,
   List,
   Menu,
-  Segment
+  Segment,
 } from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
+import "../assets/css/layout.css";
 
 class CustomLayout extends React.Component {
   componentDidMount() {
@@ -25,7 +26,12 @@ class CustomLayout extends React.Component {
     return (
       <div>
         <Menu inverted>
-          <Container>
+          <Container class="navbar">
+            <Link to="/">
+              <Menu.Item header>
+                <h4>Toubkal</h4>
+              </Menu.Item>
+            </Link>
             <Link to="/">
               <Menu.Item header>Home</Menu.Item>
             </Link>
@@ -48,7 +54,7 @@ class CustomLayout extends React.Component {
                     <Dropdown.Menu>
                       {cart !== null ? (
                         <React.Fragment>
-                          {cart.order_items.map(order_item => {
+                          {cart.order_items.map((order_item) => {
                             return (
                               <Dropdown.Item key={order_item.id}>
                                 {order_item.quantity} x {order_item.item.title}
@@ -100,35 +106,18 @@ class CustomLayout extends React.Component {
         >
           <Container textAlign="center">
             <Grid divided inverted stackable>
-              <Grid.Column width={3}>
-                <Header inverted as="h4" content="Group 1" />
+              <Grid.Column width={5}>
+                <Header inverted as="h4" content="ToubKal" color="#FFD700" />
                 <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
+                  <List.Item as="a">Home</List.Item>
+                  <List.Item as="a">Products</List.Item>
+                  <List.Item as="a">Login</List.Item>
+                  <List.Item as="a">Signup</List.Item>
                 </List>
               </Grid.Column>
-              <Grid.Column width={3}>
-                <Header inverted as="h4" content="Group 2" />
-                <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
-                </List>
-              </Grid.Column>
-              <Grid.Column width={3}>
-                <Header inverted as="h4" content="Group 3" />
-                <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
-                </List>
-              </Grid.Column>
-              <Grid.Column width={7}>
-                <Header inverted as="h4" content="Footer Header" />
+
+              <Grid.Column width={9}>
+                <Header inverted as="h4" content="ToubKal Inc." />
                 <p>
                   Extra space for a call to action inside the footer that could
                   help re-engage users.
@@ -137,7 +126,7 @@ class CustomLayout extends React.Component {
             </Grid>
 
             <Divider inverted section />
-            <Image centered size="mini" src="/logo.png" />
+            <Image centered size="mini" src="..\assets\images\icon.png" />
             <List horizontal inverted divided link size="small">
               <List.Item as="a" href="#">
                 Site Map
@@ -159,24 +148,21 @@ class CustomLayout extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     authenticated: state.auth.token !== null,
     cart: state.cart.shoppingCart,
-    loading: state.cart.loading
+    loading: state.cart.loading,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
-    fetchCart: () => dispatch(fetchCart())
+    fetchCart: () => dispatch(fetchCart()),
   };
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(CustomLayout)
+  connect(mapStateToProps, mapDispatchToProps)(CustomLayout)
 );

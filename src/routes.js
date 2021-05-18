@@ -21,6 +21,7 @@ const BaseRouter = () => (
     <Route path="/checkout" component={Checkout} />
     <Route path="/profile" component={Profile} />
     <Route exact path="/" component={HomepageLayout} />
+    {/*<Route exact path="/" component={ProductList} />*/}
   </Hoc>
 );
 
