@@ -22,12 +22,6 @@ export default () => (
           </Col>
         </FormGroup>
       </Form>
-      <div className="social-icons">
-        <i className="fab fa-facebook-f" />
-        <i className="fab fa-twitter" />
-        <i className="fab fa-google" />
-        <i className="fab fa-linkedin-in" />
-      </div>
     </Container>
   </section>
 );

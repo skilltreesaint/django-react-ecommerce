@@ -87,7 +87,13 @@ class ProductList extends React.Component {
                   <br></br>
                   {"Price : " + item.price + " Dh"}
                   <br></br>
-                  {"Discount : " + item.discount_price + " Dh"}
+                  {"Discount : " +
+                    item.discount_price +
+                    " Dh " +
+                    "   " +
+                    "--  save " +
+                    (item.price - item.discount_price) +
+                    " Dh"}
                   <br></br>
                   <Item.Description>{item.description}</Item.Description>
                   <Item.Extra>

@@ -176,7 +176,7 @@ class PaymentView(APIView):
                 # charge the customer because we cannot charge the token more than once
             charge = stripe.Charge.create(
                 amount=amount,  # cents
-                currency="usd",
+                currency="mad",
                 customer=userprofile.stripe_customer_id
             )
             # charge once off on the token

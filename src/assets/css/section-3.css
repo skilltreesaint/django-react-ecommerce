@@ -32,3 +32,26 @@
   margin-right: auto;
   width: 50%;
 }
+
+.social-icons {
+  font-size: 0.75em;
+  text-align: center;
+  color: white;
+  margin-top: 3em;
+}
+i.fab {
+  display: inline-block;
+  transition: all 0.5s;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: black;
+  line-height: 40px;
+  cursor: pointer;
+}
+i.fab:hover {
+  background-color: gold;
+}
+i.fab + i.fab {
+  margin-left: 1em;
+}

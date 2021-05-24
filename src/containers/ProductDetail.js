@@ -133,13 +133,21 @@ class ProductDetail extends React.Component {
                         {item.label}
                       </Label>
                     )}
-                    <br></br>
-                    <br></br>
-                    {"Price :" + item.price + " Dh"}
-                    <br></br>
-                    {"Discount :" + item.discount_price + " Dh"}
-                    <br></br>
-                    <br></br>
+                    <React.Fragment>
+                      <br></br>
+                      <br></br>
+                      {"Price :" + item.price + " Dh"}
+                      <br></br>
+                      {"Discount : " +
+                        item.discount_price +
+                        " Dh " +
+                        "   " +
+                        "--  save " +
+                        (item.price - item.discount_price) +
+                        " Dh"}
+                      <br></br>
+                      <br></br>
+                    </React.Fragment>
                   </React.Fragment>
                 }
                 description={item.description}
